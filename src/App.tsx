@@ -6,7 +6,7 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Menu, Typography } from "antd";
-import Notes from "./Notes";
+import Notes from "./pages/Notes";
 
 const { Title } = Typography;
 
