@@ -28,5 +28,19 @@ export default schemaMigrations({
         }),
       ],
     },
+    {
+      toVersion: 4, // Instruksi dari versi 3 ke 4
+      steps: [
+        createTable({
+          name: "xray_images",
+          columns: [
+            { name: "patient_name", type: "string" },
+            { name: "local_file_id", type: "string", isOptional: true }, // Simpan ID LocalForage pas offline
+            { name: "file_path", type: "string", isOptional: true }, // Simpan /data/file.jpg dari server
+            { name: "is_synced", type: "boolean" }, // Penanda udah masuk server atau belum
+          ],
+        }),
+      ],
+    },
   ],
 });

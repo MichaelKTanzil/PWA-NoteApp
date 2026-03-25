@@ -1,6 +1,7 @@
 import { synchronize } from "@nozbe/watermelondb/sync";
 import { database } from "./database";
 import axios from "axios";
+import { syncOfflineImages } from "../utils/syncOfflineImages";
 
 const API_URL = "http://127.0.0.1:8000/api/notes/sync";
 
@@ -21,4 +22,10 @@ export async function syncWatermelonDB() {
       await axios.post(API_URL, { changes, lastPulledAt });
     },
   });
+
+  console.log("Sinkronisasi teks selesai, bro!");
+
+  console.log("Mulai sinkronisasi gambar offline...");
+  await syncOfflineImages();
+  console.log("Sinkronisasi selesai, bro!");
 }

@@ -8,6 +8,7 @@ import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import Notes from "./pages/Notes";
 import ToDoList from "./pages/ToDoList";
+import Images from "./pages/Images";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -19,6 +20,7 @@ const items: MenuItem[] = [
     children: [
       { key: "1", label: "Notes" },
       { key: "2", label: "To Do List" },
+      { key: "3", label: "Images" },
     ],
   },
   {
@@ -55,6 +57,8 @@ const App: React.FC = () => {
         return <Notes />;
       case "2":
         return <ToDoList />;
+      case "3":
+        return <Images />;
       default:
         return (
           <div
