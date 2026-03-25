@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { message } from "antd";
-import { db, type Note } from "../db";
+import { db, type Note } from "../schema/db";
 import {
   deleteNoteFromLaravel,
   fetchNotesFromLaravel,

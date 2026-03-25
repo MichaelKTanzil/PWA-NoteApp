@@ -5,10 +5,9 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Menu, Typography } from "antd";
+import { Menu } from "antd";
 import Notes from "./pages/Notes";
-
-const { Title } = Typography;
+import ToDoList from "./pages/ToDoList";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -43,26 +42,19 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  // 'current' nyimpen key dari menu yang lagi aktif (default "1" = Notes)
   const [current, setCurrent] = useState("1");
 
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("Pindah ke tab key: ", e.key);
-    setCurrent(e.key); // Update state pas menu diklik
+    setCurrent(e.key);
   };
 
-  // FUNGSI INI KUNCINYA: Nentuin konten berdasarkan state 'current'
   const renderContent = () => {
     switch (current) {
       case "1":
         return <Notes />;
       case "2":
-        return (
-          <div>
-            <Title level={2}>Halaman To Do List</Title>
-            <p>Daftar tugas kamu muncul di sini.</p>
-          </div>
-        );
+        return <ToDoList />;
       default:
         return (
           <div

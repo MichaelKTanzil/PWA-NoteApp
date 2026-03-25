@@ -1,4 +1,4 @@
-import type { Note } from "./db";
+import type { Note } from "./schema/db";
 import axios from "axios";
 
 const API_URL = "http://127.0.0.1:8000/api/notes"; // Sesuaikan dengan port artisan serve lu

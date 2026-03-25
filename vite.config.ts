@@ -6,7 +6,15 @@ import { VitePWA } from "vite-plugin-pwa";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          // TAMBAHIN PLUGIN DECORATORS DI SINI
+          ["@babel/plugin-proposal-decorators", { legacy: true }],
+          ["@babel/plugin-proposal-class-properties", { loose: true }],
+        ],
+      },
+    }),
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate", // Otomatis update service worker kalo ada versi baru
